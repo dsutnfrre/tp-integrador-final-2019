@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet"> <!-- DatePicker -->
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="../css/asistencias.css">
+    <!--Fontawesome CDN-->
+    <script src="https://kit.fontawesome.com/b65080887d.js"></script>
+    <title>MAXELEC</title>
+    <link rel="stylesheet" href="styles/general.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/clientes.css">
+    <link rel="stylesheet" href="stsyles/login.css">
+    <link rel="stylesheet" href="styles/login_facu.css">
+    <link rel="stylesheet" href="styles/asistencias.css">
+    <link rel="stylesheet" href="styles/asistencias_facu.css">
+    <link rel="stylesheet" href="styles/nueva_asistencia.css">
+    <link rel="stylesheet" href="styles/informes.css">
+    <link rel="stylesheet" href="styles/custom-input.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet"> 
+
+</head>
+<body>
+    <!-- navbar -->
+
+    <main>
+        <template id="clientes">
+            <div class="clientes-root">
+                <div class="navbar-nb clientes">
+                    <!-- contenedor principal de la navbar -->
+                    <div class="container">
+                        <!-- logotipo MAXELEC -->
+                        <div class="header">
+                            <img class="logo" src="./assets/navbar/logo.jpeg" alt="">
+                        </div>
+                        <!-- menu donde estan todos los items -->
+                        <div class="menu-nb">
+                            <div class="item-nb clientes">
+                                <a>Asistencia Online</a>    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clientes-banner">
+                    <p class="">Te ayudamos a resolver todas tus dudas <br> brindando asistencia de calidad.</p>
+                </div>
+                <div class="form-clientes">
+                    <div class="form-online">
+    
+                        <transition name=slide mode="out-in">
+                            <div class="form-producto" v-if="producto" key="aparecer">
+                                <h2 class="titulo">¿En qué podemos ayudarte?</h2>
+                                <p class="descripcion"> Complete los siguientes datos sobre su producto y su consulta:</p>
+                                <div class="info-producto">
+                                    <div class="inputs">
+                                        <custom-select 
+                                            class="form-width-large-nb"
+                                            :name="'Producto'"
+                                            :select="'producto'" 
+                                            :options="['Anafe', 'Termotanque']" 
+                                            atribute="category"
+                                            @bind="setValue(...arguments)"
+                                        ></custom-select>
+                                        <custom-input @bind="setValue(...arguments)" :name="'Modelo'" atribute="model" class="form-width-large-nb"></custom-input> 
+                                    </div>
+                                    <div class="preview">
+                                        <custom-file-input @imgloaded="setPreview(...arguments)" :name="'Foto del producto'"></custom-file-input>    
+                                        <!-- <label>Vista previa de su producto:</label> -->
+                                        <div 
+                                            class="preview-img" 
+                                            :style="`background-image: url(${imagePreview})`"
+                                            ></div>
+                                        </div>
+                                        <div class="consulta-text">
+                                            <custom-text-input 
+                                            :name="'Descríbanos su consulta'"
+                                            atribute="message"
+                                            @bind="setValue(...arguments)"
+                                        ></custom-text-input>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-producto" v-if="!producto" key="ocultar">
+                                <h2 class="titulo">Completá con tus datos</h2>
+                                <p class="descripcion"> Te vamos a solicitar tus datos personales para poder identificarte como nuestro cliente:</p>
+                                <div class="info-datos">
+                                    <div class="form-group-nb">
+                                        <!-- <custom-input :name="'Nombre y apellido'" class=""></custom-input> -->
+                                        <div class="group-row-nb">
+                                            <custom-input 
+                                                class="form-width-large-nb"
+                                                :name="'Nombre'"
+                                                atribute="name" 
+                                                @bind="setValue(...arguments)"
+                                            ></custom-input>
+                                            <custom-input 
+                                            class="form-width-large-nb"
+                                                :name="'Apellido'" 
+                                                atribute="surname" 
+                                                @bind="setValue(...arguments)"
+                                            ></custom-input>
+                                        </div>
+                                        <div class="group-row-nb">
+                                            <custom-input 
+                                                class="form-width-large-nb"
+                                                :name="'DNI'" 
+                                                atribute="dni" 
+                                                @bind="setValue(...arguments)"
+                                            ></custom-input>
+                                            <custom-input 
+                                                class="form-width-large-nb"
+                                                :name="'Teléfono'" 
+                                                atribute="phone" 
+                                                @bind="setValue(...arguments)"
+                                            ></custom-input>
+                                        </div>
+                                        <custom-input 
+                                            class=""
+                                            :name="'Corre Electrónico'" 
+                                            atribute="email" 
+                                            @bind="setValue(...arguments)"
+                                        ></custom-input>
+                                        <custom-input 
+                                            class=""
+                                            :name="'Domicilio'" 
+                                            atribute="address" 
+                                            @bind="setValue(...arguments)"
+                                        ></custom-input>
+                                        <div class="group-row-nb">
+                                            <custom-select 
+                                                class="form-width-large-nb"
+                                                :name="'Provincia'" 
+                                                :select="'provincia'" 
+                                                :options="['Catamarca', 'Santa Fe', 'Corrientes', 'Córdoba', 'Vilellas']" 
+                                                atribute="city"
+                                                @bind="setValue(...arguments)"
+                                            ></custom-select>
+                                            <custom-input 
+                                                :name="'C.P'" 
+                                                class="form-width-large-nb"
+                                                atribute="cp" 
+                                                @bind="setValue(...arguments)"
+                                            ></custom-input>
+                                        </div>
+                                        <custom-input
+                                            class=""
+                                            :name="'Localidad'" 
+                                            atribute="location" 
+                                            @bind="setValue(...arguments)"    
+                                        ></custom-input> 
+                                    </div>
+        
+                                </div>
+                            </div>
+                        </transition>
+    
+                        <div class="form-boton" @click="changeForm( producto ? 'slide2' : 'send' )">{{ producto ? 'Continuar': 'Enviar' }}</div>
+                    </div>
+                    <div class="call-us">
+                        <h2 class="titulo">Atención telefónica</h2>
+                        <p class="descripcion">Sí preferís, podés contactarte con nosotros <br> de 9hs a 18hs en días hábiles. <br> Estamos para ayudarte.</p>
+                        <a class="telefono">0800 485 5512</a>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </main>
+
+
+    <template id="input">
+        <div class="custom-input-nb">
+            <div class="label-nb">
+                <label>{{name}}: </label>
+            </div>
+            <div class="input-nb">
+                <input 
+                    type="text" 
+                    @input="$emit('bind', {value: $event.target.value, atribute})"
+                >
+            </div>
+        </div>
+    </template>
+
+    <template id="file-input">
+        <div class="custom-file-input-nb">
+            <div class="label-nb">
+                <label>{{name}}: </label>
+            </div>
+            <div class="file-input-nb">
+                <input @change="$emit('imgloaded',$event)" type="file">
+            </div>
+        </div>
+    </template>
+
+    <template id="text-input">
+        <div class="custom-text-input-nb">
+            <div class="label-nb">
+                <label>{{name}}: </label>
+            </div>
+            <div class="text-input-nb">
+                <textarea 
+                    @input="$emit('bind', {value: $event.target.value, atribute})"
+                ></textarea>
+            </div>
+        </div>
+    </template>
+
+    <template id="select">
+        <div class="custom-input-nb">
+            <div class="label-nb">
+                <label>{{name}}: </label>
+            </div>
+            <div class="select-nb">
+                <select name="" id="">
+                    <option value="">Seleccione {{select}}</option>
+                    <option 
+                        :value="provincia"
+                        @click="$emit('bind', { value: $event.target.value, atribute })" 
+                        v-for="provincia in options"
+                    >{{provincia}}</option>
+                </select>
+            </div>
+        </div>
+    </template>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- <script src="ejemplo.js" type="text/template" id="ejemplo"></script> -->
+    <!-- etiqueta necesaria para usar VUE JS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <!-- <script src="https://unpkg.com/vue@2.5.17/dist/vue.js"></script> -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <!-- etiqueta que linkea el código vue que se utiliza para esta página -->
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
