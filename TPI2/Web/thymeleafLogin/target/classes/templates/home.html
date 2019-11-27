@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Ventana principal</title>
+<style>
+*{
+	font-family: 'Fjalla One', sans-serif;
+}
+
+header {
+	height: 75px;
+	background: #0B0C10;
+	padding: 0px 175px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	color:#66FCF1;
+}
+
+header h1{
+	font-size: 65px;
+	text-transform: uppercase;
+}
+
+header nav ul li{
+	display: inline-block;
+	margin: 0px 15px;
+	position:relative;
+}
+nav li li a{
+   width:100px;/*el ancho de los links del submenu, debe ser fijo, esto servirá para crear la animación mas adelante */
+   display:block;
+}
+/* aquí esta lo importante!! */
+nav li ul {
+   width: auto;
+   margin:0;
+   display:none;
+   background:#0B0C10;
+   border:1px black solid;
+   position: absolute;
+   top:20px;
+   left: -15px;
+}
+nav li:hover ul {
+   display: block;
+}
+
+header nav ul li a{
+	color: #66FCF1;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 15px;
+	padding: 5px;
+}
+
+header nav ul li a:hover{
+	color: #1F2833;
+	background: #45AE92;
+}
+
+.bold{
+	font-weight: bold;
+}
+
+.principal{
+	height: 475px;
+	background: #C5C6C7;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.principal p{
+	font-size: 30px;
+	color: white;
+}
+
+.flechas{
+	height: 300px;
+	background: #ECEDF1;
+}
+
+.columnas{
+	height: 250px;
+	background: #C5C6C7;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 150px;
+	transition-delay:1s
+}
+
+.modulo {
+	background-color: #66FCF1;
+	padding-bottom: 40px;
+	padding-top: 40px;
+	padding-right: 40px;
+	padding-left: 40px;
+	border: #9497A1 1px solid;
+	border-radius: 20px;
+	text-decoration: none;
+	color: black;
+}
+
+.modulo:hover {
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-o-transition: all .5s ease;
+background: rgb(31,40,51); /* Old browsers */
+background: -moz-linear-gradient(-45deg, rgba(31,40,51,1) 1%, rgba(69,162,158,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg, rgba(31,40,51,1) 1%,rgba(69,162,158,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg, rgba(31,40,51,1) 1%,rgba(69,162,158,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f2833', endColorstr='#45a29e',GradientType=1 );
+	transform: scale(1.05);
+}
+.modulo:hover {
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	border-radius: 10px;
+}
+
+.modulo:hover img {
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-o-transition: all .5s ease;
+    transform: scale(1.05);
+}
+
+.modulo:hover h1 {
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-o-transition: all .5s ease;
+    transform: scale(1.2);
+}
+
+.modulo:active {
+	background: rgb(30,87,153); /* Old browsers */
+	background: -moz-linear-gradient(-45deg, rgba(30,87,153,1) 0%, rgba(41,137,216,1) 50%, rgba(32,124,202,1) 51%, rgba(125,185,232,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(-45deg, rgba(30,87,153,1) 0%,rgba(41,137,216,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(135deg, rgba(30,87,153,1) 0%,rgba(41,137,216,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=1 );
+}
+
+.modulo {
+	text-align: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 10px;
+}
+
+.escondido{
+	visibility: hidden;
+}
+
+.modulo p {
+	margin: 20px 0px 35px 0px;
+}
+
+.modulo h1 {
+	font-size: 25px;
+}
+
+.columnas div .boton{
+	padding: 13px 40px;
+	background: #ECEDF1;
+	border-radius: 4px;
+	text-decoration: none;
+	color: black;
+	text-transform: uppercase;
+	font-weight: bold;
+	border: #9497A1 1px solid;
+}
+
+.columnas div .boton:hover{
+	background: #3588B4;
+	color: white;
+}
+
+footer{
+	height: auto;
+	background: #0B0C10;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	color:#66FCF1;
+}
+
+footer .info{
+	align-items: center;
+	padding: 100px 175px;
+}
+
+footer .info .direccion p{
+	text-transform: uppercase;
+}
+</style>
+</head>
+<body>
+    <body>
+        <header>
+            <h1>MAXELEC</h1>
+            <nav>
+                <ul>
+                    <li><a href="#" title="" class="bold">INICIO</a></li>
+                    <li><a href="#" title="">Perez, J</a>
+                        <ul>
+                            <li><a href="#">Perfil</a></li>
+                            <li><a href="#">Cerrar Sesión</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    
+        <div class="columnas">
+            <div class="modulo" style="cursor: pointer;" onclick="window.location='';">
+                <h1>Registrar Llamada</h1>
+                 <img src="images/phone.png" alt="phone" style="width:100px;height:100px;">
+            </div>
+            <div class="modulo" style="cursor: pointer;" onclick="window.location='';">
+                <h1>Reclamos Pendientes</h1>
+                <img src="images/list.png" alt="list" style="width:100px;height:100px;">
+            </div>
+            <div class="modulo" style="cursor: pointer;" onclick="window.location='';">
+                <h1>Gestionar Consultas</h1>
+                <img src="images/gears.png" alt="gears" style="width:100px;height:100px;">
+            </div>
+        </div>
+        <div class="columnas">
+            <div class="modulo escondido" style="cursor: pointer;" onclick="window.location='';">
+                <h1>Gestionar Formulario</h1>
+                <img src="images/form.png" alt="form" style="width:100px;height:100px;">
+            </div>
+            <div class="modulo" style="cursor: pointer;" onclick="window.location='';">
+                <h1>Visualizar Reclamos</h1>
+                <img src="images/eye.png" alt="eye" style="width:100px;height:100px;">
+            </div>
+            <div class="modulo escondido" style="cursor: pointer;" onclick="window.location='';">
+                <h1>Gestionar Consultas</h1>
+                <img src="images/gears.png" alt="gears" style="width:100px;height:100px;">
+            </div>
+        </div>
+    
+        <footer>
+            <div class="info">
+                <div class="direccion">
+                    <p>Frech 437 <a class="bold">UTN</a>, 4454342</p>
+                    <p>Telefono (04) 2547 3140</p>
+                </div>
+            </div>
+        </footer>
+    </body>
+</body>
+</html>

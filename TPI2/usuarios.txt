@@ -1,0 +1,7 @@
+('roger','1234','administrador')
+('facundo','1234','Gerente')
+('nicolas','1234','ServicioT')
+('martin','1234','administrador')
+('selene','1234','administrador')
+('robinson','1234','administrador')
+('juanperez','1234','administrador')
