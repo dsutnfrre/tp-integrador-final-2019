@@ -32,7 +32,7 @@ CREATE TABLE `cliente` (
   PRIMARY KEY (`id_cliente`),
   KEY `dni` (`dni`),
   CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`dni`) REFERENCES `llamadas` (`dni`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `cliente` (
 
 LOCK TABLES `cliente` WRITE;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
-INSERT INTO `cliente` VALUES (1,'Duarte Ezequiel',129405123,'432555676','asd@gmail.com','juanirro 123'),(3,'Messi',345233345,'309450935','messi@gmail.com','barcelona 1221'),(4,'Oscar',54894598,'239849','jonas@gmail.com','dulce 344'),(6,'Jose',54894598,'456667','asd@gmail.com','popo de perro 123'),(7,'gomez',123456789,'12355566','asd@gmail.com','popo de perro 456'),(8,'gomez',123456789,'21543455','asd@gmail.com','popo de perro 456'),(9,'gomez',123456789,'32545','asd@gmail.com','popo de perro 456'),(10,'gomez',123456789,'2342355','asd@gmail.com','popo de perro 456'),(11,'gomez',123456789,'34234234','asd@gmail.com','popo de perro 456');
+INSERT INTO `cliente` VALUES (1,'Duarte Ezequiel',129405123,'432555676','asd@gmail.com','juanirro 123'),(3,'Messi',345233345,'309450935','messi@gmail.com','barcelona 1221'),(4,'Oscar',54894598,'239849','jonas@gmail.com','dulce 344'),(6,'Jose',54894598,'456667','asd@gmail.com','popo de perro 123'),(7,'gomez',123456789,'12355566','asd@gmail.com','popo de perro 456'),(8,'gomez',123456789,'21543455','asd@gmail.com','popo de perro 456'),(9,'gomez',123456789,'32545','asd@gmail.com','popo de perro 456'),(10,'gomez',123456789,'2342355','asd@gmail.com','popo de perro 456'),(11,'gomez',123456789,'34234234','asd@gmail.com','popo de perro 456'),(12,'adriel',77566635,'3884757775','adriel@gmail.com','asentado 123454');
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -85,7 +85,7 @@ CREATE TABLE `llamadas` (
   `fecha_llamada` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_llamada`),
   KEY `idx_dni_llamada` (`dni`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -94,7 +94,7 @@ CREATE TABLE `llamadas` (
 
 LOCK TABLES `llamadas` WRITE;
 /*!40000 ALTER TABLE `llamadas` DISABLE KEYS */;
-INSERT INTO `llamadas` VALUES (1,129405123,5,'nose, vino asi de fabrica xD','2019-11-27 06:10:32'),(2,129405123,5,'nose, vino asi de fabrica xD','2019-11-27 06:13:28'),(3,129405123,5,'nose, vino asi de fabrica xD','2019-11-27 06:21:56'),(4,345233345,23,'No sabe porque no gana en la seleccion xD','2019-11-27 06:30:31'),(5,345233345,23,'No sabe porque no gana en la seleccion xD','2019-11-27 06:33:32'),(6,54894598,322,'se equivoco de numero jajas','2019-11-27 06:38:21'),(8,54894598,23,'algo','2019-11-27 10:34:32'),(9,123456789,322,'no entendi','2019-11-27 10:37:59'),(10,123456789,23,'asdggg','2019-11-27 11:26:22'),(11,123456789,322,'sdfsdfsdf','2019-11-27 11:27:19'),(12,123456789,5,'asdasdf','2019-11-27 11:46:06'),(13,123456789,23,'asdasdasd','2019-11-27 11:46:42');
+INSERT INTO `llamadas` VALUES (1,129405123,5,'nose, vino asi de fabrica xD','2019-11-27 06:10:32'),(2,129405123,5,'nose, vino asi de fabrica xD','2019-11-27 06:13:28'),(3,129405123,5,'nose, vino asi de fabrica xD','2019-11-27 06:21:56'),(4,345233345,23,'No sabe porque no gana en la seleccion xD','2019-11-27 06:30:31'),(5,345233345,23,'No sabe porque no gana en la seleccion xD','2019-11-27 06:33:32'),(6,54894598,322,'se equivoco de numero jajas','2019-11-27 06:38:21'),(8,54894598,23,'algo','2019-11-27 10:34:32'),(9,123456789,322,'no entendi','2019-11-27 10:37:59'),(10,123456789,23,'asdggg','2019-11-27 11:26:22'),(11,123456789,322,'sdfsdfsdf','2019-11-27 11:27:19'),(12,123456789,5,'asdasdf','2019-11-27 11:46:06'),(13,123456789,23,'asdasdasd','2019-11-27 11:46:42'),(14,77566635,120,'adriel era jajas','2019-11-27 20:15:17');
 /*!40000 ALTER TABLE `llamadas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -110,7 +110,7 @@ CREATE TABLE `login` (
   `fechaingreso` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `idlogin` smallint(4) unsigned NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`idlogin`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -119,7 +119,7 @@ CREATE TABLE `login` (
 
 LOCK TABLES `login` WRITE;
 /*!40000 ALTER TABLE `login` DISABLE KEYS */;
-INSERT INTO `login` VALUES ('exequiel86',NULL,1),('demo','2019-11-27 04:54:48',2),('exequiel86','2019-11-27 04:55:20',3);
+INSERT INTO `login` VALUES ('exequiel86',NULL,1),('demo','2019-11-27 04:54:48',2),('exequiel86','2019-11-27 04:55:20',3),('exequiel86','2019-11-27 20:12:38',4),('exequiel86','2019-11-28 00:11:00',5),('exequiel86','2019-11-28 02:36:42',6);
 /*!40000 ALTER TABLE `login` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -132,4 +132,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-27 11:32:14
+-- Dump completed on 2019-11-27 23:52:58
